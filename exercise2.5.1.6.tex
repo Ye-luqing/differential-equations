@@ -1,0 +1,238 @@
+\documentclass[a4paper, 12pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref,verbatim}
+\usepackage{amsthm,epigraph} 
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{xeCJK}
+\newtheorem*{adtheorem}{定理}
+\setCJKmainfont[BoldFont=FZYaoTi,ItalicFont=FZYaoTi]{FZYaoTi}
+\definecolor{shadecolor}{rgb}{1.0,0.9,0.9} %背景色为浅红色
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{adtheorem}}
+    {\end{adtheorem}\end{mdframed}\bigskip}
+\newtheorem*{bdtheorem}{定义}
+\newenvironment{definition}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{bdtheorem}}
+    {\end{bdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{cdtheorem}{习题}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{cdtheorem}}
+    {\end{cdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{ddtheorem}{注}
+\newenvironment{remark}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{ddtheorem}}
+    {\end{ddtheorem}\end{mdframed}\bigskip}
+\newtheorem*{edtheorem}{引理}
+\newenvironment{lemma}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{edtheorem}}
+    {\end{edtheorem}\end{mdframed}\bigskip}
+\newtheorem*{pdtheorem}{例}
+\newenvironment{example}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{pdtheorem}}
+    {\end{pdtheorem}\end{mdframed}\bigskip}
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{wrapfig} % Allows in-line images
+\usepackage{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Required for accented characters
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title
+  % and author name here, see the TITLE block
+  % below
+  \renewcommand\refname{参考文献}
+  \newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+  \newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+  \newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+  \newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+  \newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+  \newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+  \newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+  \newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+  \newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+  \newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+  \newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+  \newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+  \newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+  \newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+  \begin{flushright} % Right align
+    {\LARGE\@title} % Increase the font size of the title
+    
+    \vspace{50pt} % Some vertical space between the title and author name
+    
+    {\large\@author} % Author name
+    \\\@date % Date
+    
+    \vspace{40pt} % Some vertical space between the author block and abstract
+  \end{flushright}
+}
+
+% ----------------------------------------------------------------------------------------
+%	TITLE
+% ----------------------------------------------------------------------------------------
+\begin{document}
+\title{\textbf{习题2.5.1.6}} 
+% \setlength\epigraphwidth{0.7\linewidth}
+\author{\small{叶卢庆}\\{\small{杭州师范大学理学院,学号:1002011005}}\\{\small{Email:h5411167@gmail.com}}} % Institution
+\renewcommand{\today}{\number\year. \number\month. \number\day}
+\date{\today} % Date
+
+% ----------------------------------------------------------------------------------------
+
+
+\maketitle % Print the title section
+
+% ----------------------------------------------------------------------------------------
+%	ABSTRACT AND KEYWORDS
+% ----------------------------------------------------------------------------------------
+
+% \renewcommand{\abstractname}{摘要} % Uncomment to change the name of the abstract to something else
+
+% \begin{abstract}
+
+% \end{abstract}
+
+% \hspace*{3,6mm}\textit{关键词:}  % Keywords
+
+% \vspace{30pt} % Some vertical space between the abstract and first section
+
+% ----------------------------------------------------------------------------------------
+%	ESSAY BODY
+% ----------------------------------------------------------------------------------------
+\begin{exercise}[2.5.1.6]
+解常微分方程
+\begin{equation}
+  \label{eq:0}
+  y(1+xy)dx-xdy=0.
+\end{equation}
+\end{exercise}
+\begin{proof}[解]
+在微分方程 \eqref{eq:0} 的两边同时乘以非零函数 $u(x,y)$,可得
+\begin{equation}
+  \label{eq:2}
+  u(x,y)y(1+xy)dx-u(x,y)xdy=0.
+\end{equation}
+我们希望 \eqref{eq:2} 是一个恰当微分方程,即
+$$
+\frac{\pa u}{\pa y}y(1+xy)+u(2+2xy)=-\frac{\pa u}{\pa x}x.
+$$
+不妨让 $u$ 只是关于 $y$ 的函数,则我们有
+$$
+\frac{du}{dy}y(1+xy)+2u(1+xy)=0.
+$$
+当 $xy\neq -1$ 时,即
+$$
+\frac{du}{dy}y+2u=0.
+$$
+当 $y\neq 0$ 时,不妨让 $u=\frac{1}{y^2}$.因此我们得到恰当微分方程
+$$
+(\frac{1}{y}+x)dx-\frac{x}{y^2}dy=0.
+$$
+设存在二元函数 $\phi(x,y)$,使得
+$$
+\frac{\pa\phi}{\pa x}=\frac{1}{y}+x\ri \phi=\frac{x}{y}+\frac{1}{2}x^2+f(y).
+$$
+因此,
+$$
+-\frac{x}{y^2}+f'(y)=\frac{-x}{y^2}\ri f(y)=C.
+$$
+因此我们得到通积分
+$$
+\frac{x}{y}+\frac{1}{2}x^2+C=0.
+$$
+而当 $xy=-1$ 时,可得 $xdy+0dx=0$,因此 $y=D$,$x=\frac{-1}{D}$.而当
+$y=0$ 时,我们有解 $y=0$,$x$ 任意.
+\begin{comment}
+我们将微分方程分组,得到
+$$
+(ydx-xdy)+xydx=0.
+$$
+对于微分方程
+\begin{equation}
+  \label{eq:1}
+  ydx-xdy=0
+\end{equation}
+来说,当 $y\neq 0$ 时,其积分因子为 $\frac{1}{y^2}$,将 \eqref{eq:1} 两边乘以积分因子,可
+得恰当微分方程
+\begin{equation}
+  \label{eq:2}
+  \frac{1}{y}dx-\frac{x}{y^{2}}dy=0.
+l\end{equation}
+设二元函数 $\phi(x,y)$ 满足
+$$
+\frac{\pa\phi}{\pa x}=\frac{1}{y}\ri \phi=\frac{x}{y}+f(y).
+$$
+因此
+$$
+-\frac{x}{y^2}+f'(y)=\frac{-x}{y^2}\ri f(y)=C.
+$$
+可见,通积分为
+$$
+\frac{x}{y}+C=0.
+$$
+易得 $\frac{1}{y^2}g(\frac{x}{y})$ 也是 \eqref{eq:1} 的积分因子,其中
+$g$ 是可微函数.下面我们来看另一个微分方程
+\begin{equation}
+  \label{eq:3}
+  xydx=0.
+\end{equation}
+易得积分因子为 $\frac{1}{y}$.将积分因子乘上 \eqref{eq:3} 的时候,我们就
+得到
+$$
+xdx=0,
+$$
+因此通积分为 $\frac{1}{2}x^2+C=0$.易得 $\frac{1}{y}h(x^2)$ 也是
+\eqref{eq:3} 的一个积分因子,其中 $h$ 是可微函数.我们希望
+$$
+\frac{1}{y^2}g(\frac{x}{y})=\frac{1}{y}h(x^2).
+$$
+即
+$$
+\frac{1}{y}g(\frac{x}{y})=h(x^2).
+$$
+当 $x\neq 0$ 时,令 
+$$
+g(\frac{x}{y})=\frac{y}{x},h(x^2)=\frac{1}{x}.
+$$
+因此可得微分方程 \eqref{eq:0} 的积分因子为 $\frac{1}{xy}$.将积分因子乘
+以方程 \eqref{eq:0} 的两侧,得到
+\begin{equation}
+  \label{eq:5}
+  (\frac{1}{x}+y)dx-\frac{1}{y}dy=0.
+\end{equation}
+设存在二元函数 $\Phi(x,y)$,使得
+$$
+\frac{\pa\Phi}{\pa x}=\frac{1}{x}+y\ri \Phi=\ln|x| +xy+r(y).
+$$
+因此
+$$
+x+r'(y)
+$$
+\end{comment}
+
+
+
+
+
+
+
+\end{proof}
+% ----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+% ----------------------------------------------------------------------------------------
+
+\bibliographystyle{unsrt}
+
+\bibliography{sample}
+
+% ----------------------------------------------------------------------------------------
+\end{document}
