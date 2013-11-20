@@ -1,0 +1,189 @@
+\documentclass[twoside,11pt]{article} 
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref}
+\usepackage{amsthm} 
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{xeCJK}
+\newtheorem{adtheorem}{定理}
+\setCJKmainfont[BoldFont=FangSong_GB2312,ItalicFont=FangSong_GB2312]{FangSong_GB2312}
+\newenvironment{theorem}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{adtheorem}}
+    {\end{adtheorem}\end{mdframed}}
+\newtheorem{bdtheorem}{定义}
+\newenvironment{definition}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{bdtheorem}}
+    {\end{bdtheorem}\end{mdframed}}
+\newtheorem*{cdtheorem}{习题}
+\newenvironment{exercise}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{cdtheorem}}
+    {\end{cdtheorem}\end{mdframed}}
+\newtheorem*{ddtheorem}{注}
+\newenvironment{remark}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{ddtheorem}}
+    {\end{ddtheorem}\end{mdframed}}
+\newtheorem{edtheorem}{引理}
+\newenvironment{lemma}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{edtheorem}}
+    {\end{edtheorem}\end{mdframed}}
+% \usepackage{latexdef}
+\def\ZZ{\mathbb{Z}} \topmargin -0.40in \oddsidemargin 0.08in
+\evensidemargin 0.08in \marginparwidth 0.00in \marginparsep 0.00in
+\textwidth 16cm \textheight 24cm \newcommand{\D}{\displaystyle}
+\newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+\newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+\newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+\newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+\newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+\newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+\newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+\newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+\newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+\newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+\renewcommand\refname{参考文献} \def \qed {\hfill \vrule height6pt
+  width 6pt depth 0pt} \topmargin -0.40in \oddsidemargin 0.08in
+\evensidemargin 0.08in \marginparwidth0.00in \marginparsep 0.00in
+\textwidth 15.5cm \textheight 24cm \pagestyle{myheadings}
+\markboth{\rm \centerline{}} {\rm \centerline{}}
+\begin{document}
+  \title{{\bf {《常微分方程教程》\footnote{丁同仁,李承治著,第二版,高等
+          教育出版社}习题1-1,3}}} \author{{叶卢庆} \\{{ \small{杭州师范
+          大学理学院,学
+          号:1002011005}}}\\\small{Email:h5411167@gmail.com}}
+  \maketitle
+  \begin{exercise}[习题1-1,3,(1)]
+求出曲线族 $y=Cx+x^2$ 所满足的微分方程.
+  \end{exercise}
+  \begin{proof}[解]
+易得为
+\begin{equation}
+  \label{eq:8.17pm}
+  y''=2.
+\end{equation}
+\end{proof}
+\begin{remark}
+  注意 $y=Cx+x^2$ 并非 $y''=2$ 的通解.
+\end{remark}
+\bigskip
+\begin{exercise}[习题1-1,3,(2)]
+求曲线族 $y=C_1e^x+C_2xe^x$ 所满足的微分方程.  
+\end{exercise}
+\begin{proof}[解]
+  可得
+  \begin{equation}
+    \label{eq:9.24pm}
+    \begin{cases}
+      y=\phi(x,C_{1},C_{2})=C_1e^x+C_2xe^x,\\
+y'=\phi'(x,C_{1},C_{2})=C_1e^x+C_2e^x+C_2xe^x
+    \end{cases}.
+  \end{equation}
+且
+\begin{equation}
+  \label{eq:9.26pm}
+  y''=C_1e^x+2C_2e^x+C_2xe^x.
+\end{equation}
+由式 \eqref{eq:9.24pm} 可得雅可比行列式
+\begin{equation}
+  \label{eq:9.28pm}
+  \begin{vmatrix}
+    \frac{\partial \phi}{\partial C_1}&\frac{\partial \phi}{\partial
+      C_2}\\
+\frac{\partial \phi'}{\partial C_{1}}&\frac{\partial \phi'}{\partial C_2}
+  \end{vmatrix}=\begin{vmatrix}
+    e^x&xe^x\\
+e^x&e^x+xe^x
+  \end{vmatrix}=e^{2x}\neq 0.
+\end{equation}
+因此 $C_1,C_2$ 是独立的.因此可以反解出
+\begin{equation}
+  \label{eq:9.39pm}
+  \begin{cases}
+    C_2=\frac{y'-y}{e^x}\\
+C_1=\frac{y+xy-xy'}{e^x}\\
+  \end{cases}.
+\end{equation}
+将式 \eqref{eq:9.39pm} 代入式 \eqref{eq:9.26pm},可得
+\begin{equation}
+  \label{eq:10.05pm}
+  y''=2y'-y.
+\end{equation}
+式 \eqref{eq:10.05pm} 即为曲线族 $y=C_1e^x+C_2xe^x$ 所满足的微分方程.
+\end{proof}
+\begin{exercise}[习题1-1,3,(3)]
+求平面上以原点为中心的一切圆所满足的微分方程.  
+\end{exercise}
+\begin{proof}[解]
+  平面上以原点为中心的任意圆都可以表达成
+  \begin{equation}
+    \label{eq:10.09pm}
+    x^2+y^2=r^2
+  \end{equation}
+的形式,其中 $r$ 是任意给定的非零实数.将 $y$ 看作 $x$ 的隐函数,则得
+\begin{equation}
+  \label{eq:10.21pm}
+  2x+2yy'=0.
+\end{equation}
+即
+\begin{equation}
+  \label{eq:10.22pm}
+  x+yy'=0.
+\end{equation}
+此即以原点为中心的一切圆所满足的微分方程.
+\end{proof}
+\begin{exercise}[习题1-1,3,(4)]
+试求平面上一切圆所满足的微分方程.  
+\end{exercise}
+\begin{proof}[解]
+平面上的任意一个圆的一般方程为
+  \begin{equation}
+    \label{eq:10.28pm}
+    (x-a)^2+(y-b)^2=r^2,r\in \mathbf{R}^{+}.
+  \end{equation}
+将 $y$ 看作 $x$ 的隐函数,可得
+\begin{subequations}\label{hehe}
+  \begin{align}
+(x-a)^2+(y-b)^2&=r^2\\
+(x-a)+(y-b)y'&=0\\
+1+y'^2+(y-b)y''&=0
+  \end{align}
+\end{subequations}
+将式 (11b) 两边同时乘以 $y''$,可得
+\begin{equation}
+  \label{eq:11.05am}
+  (x-a)y''+(y-b)y''y'=0.
+\end{equation}
+将式 (11c) 代入式 \eqref{eq:11.05am} 可得
+\begin{equation}
+  \label{eq:11.06am}
+  (x-a)y''=(1+y'^2)y'.
+\end{equation}
+将式 (11a) 两边同时乘以 $y''^2$,可得
+\begin{equation}
+  \label{eq:11.08am}
+  [(x-a)y'']^2+[(y-b)y'']^2=r^2y''^2.
+\end{equation}
+将式 (11c),\eqref{eq:11.06am} 代入 \eqref{eq:11.08am},可得
+\begin{equation}
+  \label{11.10am}
+  (1+y'^2)^{3}=r^2y''^2.
+\end{equation}
+于是
+\begin{equation}
+  \label{eq:11.17am}
+  \frac{(1+y'^2)^3}{y''^2}=r^2.
+\end{equation}
+将式子 \eqref{eq:11.17am} 两边对 $x$ 求导,最终可得
+\begin{equation}
+  \label{eq:11.19am}
+ 3y'y''^2-(1+y'^2)y'''=0. 
+\end{equation}
+式 \eqref{eq:11.19am} 就是平面上一切圆所满足的微分方程.
+\end{proof}
+\end{document}

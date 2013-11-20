@@ -1,0 +1,352 @@
+\documentclass[twoside,11pt]{article} 
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref}
+\usepackage{amsthm} 
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+%\usepackage{CJKutf8}
+\usepackage{xeCJK}
+\newtheorem*{adtheorem}{定理}
+\setCJKmainfont[BoldFont=FangSong_GB2312,ItalicFont=FangSong_GB2312]{FangSong_GB2312}
+\newenvironment{theorem}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{adtheorem}}
+    {\end{adtheorem}\end{mdframed}}
+\newtheorem{bdtheorem}{定义}
+\newenvironment{definition}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{bdtheorem}}
+    {\end{bdtheorem}\end{mdframed}}
+\newtheorem*{cdtheorem}{习题}
+\newenvironment{exercise}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{cdtheorem}}
+    {\end{cdtheorem}\end{mdframed}}
+\newtheorem{ddtheorem}{注}
+\newenvironment{remark}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{ddtheorem}}
+    {\end{ddtheorem}\end{mdframed}}
+\newtheorem{edtheorem}{引理}
+\newenvironment{lemma}
+{\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{edtheorem}}
+    {\end{edtheorem}\end{mdframed}}
+% \usepackage{latexdef}
+\def\ZZ{\mathbb{Z}} \topmargin -0.40in \oddsidemargin 0.08in
+\evensidemargin 0.08in \marginparwidth 0.00in \marginparsep 0.00in
+\textwidth 16cm \textheight 24cm \newcommand{\D}{\displaystyle}
+\newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+\newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+\newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+\newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+\newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+\newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+\newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+\newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+\newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+\newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+\renewcommand\refname{参考文献} \def \qed {\hfill \vrule height6pt
+  width 6pt depth 0pt} \topmargin -0.40in \oddsidemargin 0.08in
+\evensidemargin 0.08in \marginparwidth0.00in \marginparsep 0.00in
+\textwidth 15.5cm \textheight 24cm \pagestyle{myheadings}
+\markboth{\rm \centerline{}} {\rm \centerline{}}
+\begin{document}
+  \title{{\bf {《常微分方程教程》习题2-1}}} \author{{叶卢庆} \\{{
+        \small{杭州师范大学理学院,学
+          号:1002011005}}}\\\small{Email:h5411167@gmail.com}}
+  \maketitle
+  这些重复的题目真无聊啊,但是我忍了.静下心边做边感悟.判断下列方程是否为恰当方程,并对恰当方程求解.
+  \begin{exercise}[2-1,1]
+    $(3x^2-1)dx+(2x+1)dy=0$.
+  \end{exercise}
+  \begin{proof}[解]
+    设 $P(x,y)=3x^2-1$,$Q(x,y)=2x+1$,因为
+$$
+\frac{\partial P}{\partial y}=0,\frac{\partial Q}{\partial x}=2.
+$$
+因此不是恰当方程.
+\end{proof}
+\begin{exercise}[2-1,2]
+  $(x+2y)dx+(2x-y)dy=0.$
+\end{exercise}
+\begin{proof}[解]
+  设 $P(x,y)=x+2y$,$Q(x,y)=2x-y$,可得
+$$
+\frac{\pa P}{\pa y}=2,\frac{\pa Q}{\pa x}=2,
+$$
+令 $\phi$ 满足
+\begin{subequations}
+  \label{eq:2,07pm}
+  \begin{align}
+    \frac{\pa \phi}{\pa x}=x+2y,\\
+    \frac{\pa \phi}{\pa y}=2x-y.
+  \end{align}
+\end{subequations}
+将式 (1a) 对 $x$ 积分,得到
+\begin{equation}
+  \label{eq:2.52}
+  \phi(x,y)=\frac{1}{2}x^2+2yx+f(y).
+\end{equation}
+将 \eqref{eq:2.52} 代入 (1b),可得
+\begin{equation}
+  \label{eq:2.54pm}
+  2x+f'(y)=2x-y.
+\end{equation}
+因此
+\begin{equation}
+  \label{eq:2.54pm}
+  f'(y)=-y.
+\end{equation}
+于是 $f(y)=\frac{-1}{2}y^2+K$.因此
+\begin{equation}
+  \label{eq:2.55pm}
+  \phi(x,y)=\frac{1}{2}x^2+2xy-\frac{1}{2}y^2+K.
+\end{equation}
+因此可得通积分为
+$$
+\phi(x,y)\equiv\frac{1}{2}x^2+2xy-\frac{1}{2}y^2+K=0.
+$$
+\end{proof}
+\begin{exercise}[2-1,3]
+  $(ax+by)dx+(bx+cy)dy=0$($a,b,c$ 为常数).
+\end{exercise}
+\begin{proof}[解]
+  令 $P(x,y)=ax+by$,$Q(x,y)=bx+cy$,
+  \begin{equation}
+    \label{eq:5.38pm}
+    \frac{\pa P}{\pa y}=b=\frac{\pa Q}{\pa x}.
+  \end{equation}
+因此题目中的是恰当方程.设
+\begin{subequations}
+  \begin{align}
+    \label{eq:5.39}
+    \frac{\pa\phi}{\pa x}=P(x,y)=ax+by,\\
+\frac{\pa \phi}{\pa y}=Q(x)=bx+cy.
+  \end{align}
+\end{subequations}
+则将式 (7a) 两边对 $x$ 积分,可得
+\begin{equation}
+  \label{eq:5.41pm}
+  \phi=\frac{1}{2}ax^2+bxy+f(y).
+\end{equation}
+将式 \eqref{eq:5.41pm} 代入 (7b),可得
+\begin{equation}
+  \label{eq:5.47pm}
+bx+f'(y)=bx+cy\Rightarrow f(y)=\frac{1}{2}cy^2+C.
+\end{equation}
+因此通积分为
+\begin{equation}
+  \label{eq:5.51pm}
+  \phi(x,y)\equiv\frac{1}{2}ax^2+bxy+\frac{1}{2}cy^2+C=0.
+\end{equation}
+\end{proof}
+\begin{exercise}[2-1,4]
+$(ax-by)dx+(bx-cy)dy=0$($b\neq 0$).  
+\end{exercise}
+\begin{proof}[解]
+  显然不是恰当方程.
+\end{proof}
+\begin{exercise}[2-1,5]
+$$
+(t^2+1)\cos udu+2t\sin udt=0.
+$$
+\end{exercise}
+\begin{proof}[解]
+  设 $P(u,t)=(t^2+1)\cos u$,$Q(u,t)=2t\sin u$.则
+$$
+\frac{\pa P}{\pa t}=2t\cos u=\frac{\pa Q}{\pa u}.
+$$
+可见题目中的微分方程是恰当微分方程.设
+\begin{equation}
+  \label{eq:6.37}
+  \frac{\pa \phi}{\pa u}=P(u)=(t^2+1)\cos u.
+\end{equation}
+\begin{equation}
+  \label{eq:6.42}
+  \frac{\pa \phi}{\pa t}=Q(u,t)=2t\sin u.
+\end{equation}
+则把式子 \eqref{eq:6.37} 两边沿着 $u$ 坐标方向积分,得到
+\begin{equation}
+  \label{eq:7.09}
+ \phi=(t^2+1)\sin u+f(t).
+\end{equation}
+将式 \eqref{eq:7.09} 代入 \eqref{eq:6.42},得到
+\begin{equation}
+  \label{eq:714}
+  2t\sin u+f'(t)=2t\sin u.
+\end{equation}
+因此 $f(t)=C$.于是 $\phi=(t^2+1)\sin u+C$.于是通积分为
+$$
+(t^2+1)\sin u+C=0.
+$$
+\end{proof}
+\begin{exercise}[2-1,6]
+$$
+(ye^x+2e^x+y^2)dx+(e^x+2xy)dy=0.
+$$  
+\end{exercise}
+\begin{proof}[解]
+  令 $P(x,y)=ye^{x}+2e^x+y^2$,$Q(x,y)=e^x+2xy$.则易得
+$$
+\frac{\pa P}{\pa y}=\frac{\pa Q}{\pa x}=e^x+2y.
+$$
+因此题目中的常微分方程为恰当微分方程.设
+\begin{equation}
+  \label{eq:7.29pm}
+  \frac{\pa\phi}{\pa x}=P(x,y)=ye^x+2e^x+y^2.
+\end{equation}
+\begin{equation}
+  \label{eq:7.43}
+  \frac{\pa \phi}{\pa y}=e^x+2xy.
+\end{equation}
+先对式 \eqref{eq:7.29pm} 沿着 $x$ 方向积分,则
+\begin{equation}
+  \label{eq:7.44pm}
+  \phi=ye^x+2e^x+xy^2+f(y).
+\end{equation}
+将式 \eqref{eq:7.44pm} 代入式 \eqref{eq:7.43},得到
+\begin{equation}
+  \label{eq:7.48pm}
+  e^x+2xy+f'(y)=e^x+2xy\Rightarrow f(y)=C.
+\end{equation}
+因此 $\phi(x,y)=ye^x+2e^x+xy^2+C$,因此通积分为
+\begin{equation}
+  \label{eq:7.51pm}
+  ye^x+2e^x+xy^2+C=0.
+\end{equation}
+\end{proof}
+\begin{exercise}[2-1,7]
+$$
+(\frac{y}{x}+x^2)dx+(\ln x-2y)dy=0.a,b,c\mbox{均为常数.}
+$$  
+\end{exercise}
+\begin{proof}[解]
+设 $P(x,y)=\frac{y}{x}+x^2$,$Q(x,y)=\ln x-2y$.则易得
+\begin{equation}
+  \label{eq:8.03pm}
+  \frac{\pa P}{\pa y}=\frac{1}{x}=\frac{\pa Q}{\pa x}.
+\end{equation}
+因此是恰当微分方程.设
+\begin{equation}
+  \label{eq:8.32}
+  \frac{\pa \phi}{\pa x}=P(x,y)=\frac{y}{x}+x^2,
+\end{equation}
+\begin{equation}
+  \label{eq:8.33}
+  \frac{\pa \phi}{\pa y}=Q(x,y)=\ln x-2y.
+\end{equation}
+将式 \eqref{eq:8.33} 沿着 $y$ 方向积分,得到
+\begin{equation}
+  \label{eq:8.34pm}
+  \phi=y\ln x-y^2+f(x).
+\end{equation}
+将式 \eqref{eq:8.34pm} 代入式 \eqref{eq:8.32},可得
+\begin{equation}
+  \label{eq:8.39pm}
+ \frac{y}{x}+f'(x)=\frac{y}{x}+x^2\Rightarrow f(x)=\frac{1}{3}x^3+C. 
+\end{equation}
+因此可得 $\phi=y\ln x-y^2+\frac{1}{3}x^3+C$.于是通积分为
+$$
+y\ln x-y^2+\frac{1}{3}x^3+C=0.
+$$
+\end{proof}
+\begin{exercise}[2-1,8]
+ $$ (ax^2+by^2)dx+cxydy=0 $$($a,b,c$ 为常数.)
+\end{exercise}
+\begin{proof}[解]
+  要分类讨论.当 $2b=c$ 时,是恰当微分方程,否则不是.我们来针对 $2b=c$ 是
+  恰当微分方程时的情形.此时原微分方程变为
+$$
+(ax^2+by^2)dx+2bxydy=0.
+$$
+  设
+  \begin{equation}
+    \label{eq:8.48}
+    \frac{\pa \phi}{\pa x}=ax^2+by^2
+  \end{equation}
+  \begin{equation}
+    \label{eq:8.49}
+    \frac{\pa \phi}{\pa y}=2bxy.
+  \end{equation}
+根据式 \eqref{eq:8.49} 可得
+\begin{equation}
+  \label{eq:8.50}
+  \phi=bxy^2+f(x).
+\end{equation}
+将式 \eqref{eq:8.50} 代入 \eqref{eq:8.48},可得
+\begin{equation}
+  \label{eq:8.51}
+  by^2+f'(x)=ax^2+by^2\Rightarrow f(x)=\frac{1}{3}ax^{3}+C.
+\end{equation}
+于是通积分为
+$$
+bxy^2+\frac{1}{3}ax^3+C=0.
+$$
+\end{proof}
+\begin{exercise}[2-1,9]
+$$
+\frac{2s-1}{t}ds+\frac{s-s^2}{t^2}dt=0.
+$$
+\end{exercise}
+\begin{proof}[解]
+  显然是恰当微分方程.设
+  \begin{equation}
+    \label{eq:9.00pm}
+    \frac{\pa \phi}{\pa t}=\frac{2s-1}{t}
+  \end{equation}
+得到 $\phi=(2s-1)\ln |t|+f(s)$.代入下面的式子
+  \begin{equation}
+    \label{eq:9.01pm}
+   \frac{\pa \phi}{\pa s}=\frac{s-s^2}{t^2}. 
+  \end{equation}
+可得
+\begin{equation}
+  \label{eq:9.03pm}
+  2\ln|t|+f'(s)=\frac{s-s^2}{t^2}.
+\end{equation}
+因此
+$$
+f(s)=-2t(\ln|t|-1)+\frac{1}{2t^2}s^2-\frac{1}{3t^2}s^3+C.
+$$
+因此通积分为
+$$
+(2s-1)\ln|t|-2t(\ln|t|-1)+\frac{1}{2t^2}s^2-\frac{1}{3t^2}s^3+C=0.
+$$
+\end{proof}
+\begin{exercise}[2-1,10]
+$xf(x^2+y^2)dx+yf(x^2+y^2)dy=0$,其中 $f(\cdot)$ 是连续可微的.  
+\end{exercise}
+\begin{proof}[解]
+  设 $P(x,y)=xf(x^2+y^2)$,$Q(x,y)=yf(x^2+y^2)$,令 $x^2+y^2=u$,
+  \begin{equation}
+    \label{eq:9.27pm}
+    \frac{\pa P}{\pa y}=2xy\frac{\pa f}{\pa u}.
+  \end{equation}
+  \begin{equation}
+    \label{eq:9.28}
+    \frac{\pa Q}{\pa x}=2xy \frac{\pa f}{\pa u}.
+  \end{equation}
+因此题目中的是恰当微分方程.设
+\begin{equation}
+  \label{eq:9.39pm}
+  \frac{\pa \phi}{\pa x}=xf(x^2+y^2),
+\end{equation}
+在 $x$ 方向进行积分,得到 $\phi=\frac{1}{2}F(x^2+y^2)+f(y).$,其中 $F$ 是
+$f$ 的原函数.代入下式
+\begin{equation}
+  \label{eq:9.39}
+  \frac{\pa \phi}{\pa y}=yf(x^2+y^2).
+\end{equation}
+可得
+$$
+yf(x^2+y^2)+f'(y)=yf(x^2+y^2)\Rightarrow f(y)=C.
+$$
+于是通积分为
+$$
+\frac{1}{2}F(x^2+y^2)+C=0.
+$$
+\end{proof}
+\end{document}

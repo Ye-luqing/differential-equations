@@ -1,0 +1,196 @@
+\documentclass[a4paper, 12pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref}
+\usepackage{amsthm} 
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{xeCJK}
+\newtheorem*{adtheorem}{定理}
+\setCJKmainfont[BoldFont=Adobe Song Std,ItalicFont=Adobe Song Std]{Adobe Song Std}
+\definecolor{shadecolor}{rgb}{1.0,0.9,0.9} %背景色为浅红色
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{adtheorem}}
+    {\end{adtheorem}\end{mdframed}\bigskip}
+\newtheorem*{bdtheorem}{定义}
+\newenvironment{definition}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{bdtheorem}}
+    {\end{bdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{cdtheorem}{习题}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{cdtheorem}}
+    {\end{cdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{ddtheorem}{注}
+\newenvironment{remark}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{ddtheorem}}
+    {\end{ddtheorem}\end{mdframed}\bigskip}
+\newtheorem*{edtheorem}{引理}
+\newenvironment{lemma}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{edtheorem}}
+    {\end{edtheorem}\end{mdframed}\bigskip}
+\newtheorem*{pdtheorem}{例}
+\newenvironment{example}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{pdtheorem}}
+    {\end{pdtheorem}\end{mdframed}\bigskip}
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{wrapfig} % Allows in-line images
+\usepackage{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Required for accented characters
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title
+  % and author name here, see the TITLE block
+  % below
+  \renewcommand\refname{参考文献}
+  \newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+  \newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+  \newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+  \newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+  \newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+  \newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+  \newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+  \newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+  \newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+  \newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+  \begin{flushright} % Right align
+    {\LARGE\@title} % Increase the font size of the title
+    
+    \vspace{50pt} % Some vertical space between the title and author name
+    
+    {\large\@author} % Author name
+    \\\@date % Date
+    
+    \vspace{40pt}
+  \end{flushright}
+}
+
+\title{\textbf{《常微分方程教程》习题2.3.5,(1)}} 
+
+\author{\small{叶卢庆}\\{\small{杭州师范大学理学院,学号:1002011005}}\\{\small{Email:h5411167@gmail.com}}}
+\renewcommand{\today}{\number\year. \number\month. \number\day}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+\begin{exercise}[2.3.5,(1)]
+  考虑方程
+  \begin{equation}
+    \label{eq:1}
+    \frac{dy}{dx}+p(x)y=q(x),
+  \end{equation}
+  其中 $p(x),q(x)$ 都是以 $w>0$ 为周期的连续函数.试证:若 $q(x)\equiv
+  0$,则方程 \eqref{eq:1} 的任一非零解以 $w$ 为周期,当且仅当函
+  数 $p(x)$的平均值
+$$
+\frac{1}{w}\int_0^wp(x)dx=0.
+$$
+\end{exercise}
+\begin{proof}[证明]
+  我们知道,方程 \eqref{eq:1} 的通解为
+  \begin{equation}
+    \label{eq:2}
+    y=e^{-\int p(x)dx}\left(C+\int q(x)e^{\int p(x)dx}dx\right),
+  \end{equation}
+  其中 $C$ 是任一常数.当 $q(x)\equiv 0$ 时,\eqref{eq:2} 变为
+  \begin{equation}
+    \label{eq:3}
+    y=Ce^{-\int p(x)dx}.
+  \end{equation}
+  设 $H(x)=\int p(x)dx$,可得
+$$
+y_0H(0)=C,y_wH(w)=C.
+$$
+当解 \eqref{eq:3} 以 $w$ 为周期时,可得 $y_0=y_w$,因此
+$$
+H(w)-H(0)=0,
+$$
+即
+$$
+\frac{1}{w}\int_0^wp(x)dx=0.
+$$
+\\\\
+而当
+$$
+\frac{1}{w}\int_0^wp(x)dx=0
+$$
+时,鉴于 $p(x)$ 的周期性,说明
+$$
+\int_t^{t+w}p(x)dx=0.
+$$
+(为什么?注:画个图有助于理解.)因此
+$$
+H(t+w)-H(t)=0\ri H(t+w)=H(t).
+$$
+我们知道,
+$$
+y_tH(t)=C,y_{t+w}H(t+w)=C.
+$$
+于是
+$$
+y_tH(t)=y_{t+w}H(t+w).
+$$
+当 $H(t)=H(t+w)\neq 0$ 时,
+$y_t=y_{t+w}$.当 $H(t)=H(t+w)=0$ 时,可得$C=0$,因此 $y=0$,照样
+有 $y_t=y_{t+w}$.
+\end{proof}
+
+%\begin{exercise}[2.3.5,(2)]
+%  若 $q(x)$ 不恒为0,则方程 \eqref{eq:1} 有唯一的 $w$ 周期解,当且仅当
+%$$
+%\frac{1}{w}\int_0^wp(x)dx\neq 0.
+%$$
+%试求出此解.
+%\end{exercise}
+%\begin{proof}[解]
+%  我们知道,方程 \eqref{eq:1} 的通解为
+%  \begin{equation}
+%    \label{eq:4}
+%    y=e^{-\int p(x)dx}\left(C+\int q(x)e^{\int p(x)dx}dx\right),
+%  \end{equation}
+%  其中 $C$ 是任一常数.设 $H(x)=\int p(x)dx$,$K(x)=\int q(x)e^{\int
+%    p(x)dx}dx$.当函数 \eqref{eq:4} 是周期函数的时候,我们知道,
+%  \begin{equation}
+%    \label{eq:5}
+%    y_te^{H(t)}=C+K(t).
+%  \end{equation}
+%  \begin{equation}
+%    \label{eq:6}
+%    y_{t+w}e^{H(t+w)}=C+K(t+w).
+%  \end{equation}
+%  可见
+%  \begin{equation}
+%    \label{eq:7}
+%    y_{t+w}e^{H(t+w)}-y_te^{H(t)}=K(t+w)-K(t)
+%  \end{equation}
+%  \eqref{eq:7} 即
+%  \begin{equation}
+%    \label{eq:8}
+%    y_te^{H(t)}e^{\int_t^{t+w}p(x)dx}=\int_t^{t+w}q(x)e^{\int p(x)dx}dx.
+%  \end{equation}
+%  \eqref{eq:8} 即
+%  \begin{equation}
+%    \label{eq:9}
+%    y_t=\frac{\int_t^{t+w}q(x)e^{\int p(x)dx}dx}{e^{H(t)}e^{\int _0^wp(x)dx}}.
+%  \end{equation}
+%易得
+%\begin{equation}
+%  \label{eq:10}
+%  \int_t^{t+w}q(x)e^{\int p(x)dx}dx=\int_0^wq(x)e^{\int
+%    p(x)dx}dx.(\mbox{因为}q(x),p(x)\mbox{的周期性.})
+%\end{equation}
+%\end{proof}
+\bibliographystyle{unsrt}
+
+\bibliography{sample}
+
+
+\end{document}

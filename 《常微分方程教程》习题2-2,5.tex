@@ -1,0 +1,196 @@
+\documentclass[a4paper, 12pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref,epigraph}
+\usepackage{amsthm,verbatim}
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color}
+\usepackage{mathrsfs,xcolor}
+\usepackage[all]{xy}
+\usepackage{fancybox}
+\usepackage{xeCJK}
+\newtheorem*{adtheorem}{定理}
+\setCJKmainfont[BoldFont=Adobe Song Std,ItalicFont=Adobe Song Std]{Adobe Song Std}
+\definecolor{shadecolor}{rgb}{1.0,0.9,0.9} %背景色为浅红色
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{adtheorem}}
+    {\end{adtheorem}\end{mdframed}\bigskip}
+\newtheorem*{bdtheorem}{定义}
+\newenvironment{definition}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{bdtheorem}}
+    {\end{bdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{cdtheorem}{习题}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{cdtheorem}}
+    {\end{cdtheorem}\end{mdframed}\bigskip}
+\newtheorem{ddtheorem}{注}
+\newenvironment{remark}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{ddtheorem}}
+    {\end{ddtheorem}\end{mdframed}\bigskip}
+\newtheorem{edtheorem}{引理}
+\newenvironment{lemma}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{edtheorem}}
+    {\end{edtheorem}\end{mdframed}\bigskip}
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{wrapfig} % Allows in-line images
+\usepackage{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Required for accented characters
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title
+  % and author name here, see the TITLE block
+  % below
+  \renewcommand\refname{参考文献}
+  \newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+  \newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+  \newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+  \newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+  \newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+  \newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+  \newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+  \newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+  \newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+  \newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+  \newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+  \newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+  \newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+  \newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+  \begin{flushright} % Right align
+    {\LARGE\@title} % Increase the font size of the title
+
+    \vspace{50pt} % Some vertical space between the title and author name
+
+    {\large\@author} % Author name
+    \\\@date % Date
+
+    \vspace{40pt} % Some vertical space between the author block and abstract
+  \end{flushright}
+}
+\setlength\epigraphwidth{0.6\linewidth}
+\begin{document}
+\title{\textbf{《常微分方程教程》\footnote{丁同仁,李承治编著,高等教育
+      出版社第二版.}习题2-2,5}}
+
+\author{\small{叶卢庆}\\{\small{杭州师范大学理学院,学
+      号:1002011005}}\\{\small{Email:h5411167@gmail.com}}} % Institution
+\renewcommand{\today}{\number\year. \number\month. \number\day}
+\date{\today} % Date
+
+\maketitle
+\begin{exercise}[2-2,5]
+  设微分方程
+  \begin{equation}
+    \label{eq:3.41}
+    \frac{dy}{dx}=f(y),
+  \end{equation}
+  其中 $f(y)$ 在 $y=a$ 的某邻域(例如区间 $|y-a|\leq\varepsilon$)内连
+  续,且 $f(y)=0$ 当且仅当 $y=a$.则在直线 $y=a$ 上的每一
+  点,方程 \eqref{eq:3.41} 的解是局部唯一的,当且仅当瑕积分
+$$
+|\int_a^{a\pm \varepsilon}\frac{dy}{f(y)}|=\infty.
+$$
+\end{exercise}
+\begin{remark}
+  首先我得抱怨一下,书上在给我做这个题目之前并没有介绍“局部唯一”是什么意
+  思.我将其理解成,对于直线 $y=a$ 上的任意一个点 $(x_0,a)$,当 $(x_0,a)$
+  的邻域足够小的时候,满足方程 \eqref{eq:3.41} 的所有积分曲线中,仅有一条
+  积分曲线通过了 $(x_0,a)$ 的该邻域.另外,在本文里,笔者规定所有的邻域都
+  是圆形的.
+\end{remark}
+
+\begin{remark}
+  该题目有明显的物理意义.将 $x$ 看作时间,将 $y$ 看作质点在一条直线上的
+  一维位置.则$\frac{dy}{dx}=f(y)$ 表示质点在直线上的一维速度.质点的速度
+  在位置区间$[a-\varepsilon,a+\varepsilon]$ 上连续(这在物理中是自明
+  的,速度不会突变.),且只有在位置 $y=a$ 的地方速度才为0.且质点的速度是位
+  置的函
+  数.我们知道,满足如上条件的质点可能有无数种运动方式.\\
+
+  如果质点所有的运动方式都有如下特征:当质点还没达到 $y=a$ 这个位置,但是
+  已经很接近$y=a$ 这个位置的时候,如果质点每接近 $y=a$ 这个位置相同的距
+  离,所花费的时间会越来越长,最后是寸步难进(虽然始终在运动),即使
+  向 $y=a$ 前进哪怕是很小很小的一段距离,所消耗的时间也会惊人地多,以至于
+  无论给这个质点多长的时间,质点都将无法到达
+  $y=a$ 这个位置,那么想要质点在一定的时间内通过 $y=a$ 的哪怕是很小很小的邻域都是做不到的,唯一能做的就是把质点直接放在 $y=a$ 这个地方保持静止.\\
+
+  而相反地,如果质点无法在一定的时间内通过 $y=a$ 的哪怕是很小很小的邻域,那
+  么在别处的质点只有经过无穷长的时间才能达到 $y=a$ 处(也就是永远达不到).
+\end{remark}
+\begin{proof}[证明]
+  当 $y\neq a$ 时,我们把 \eqref{eq:3.41} 化为
+  \begin{equation}
+    \label{eq:3.50}
+    \frac{1}{f(y)}dy-dx=0.
+  \end{equation}
+  对 \eqref{eq:3.50} 进行积分,得到通积分
+  \begin{equation}\label{eq:1.31}
+    \int \frac{1}{f(y)}dy-x+C=0.
+  \end{equation}
+  其中 $C$ 是一个常数.该通积分在 $y\neq a$ 的时候,确定了 $x$ 和 $y$ 的
+  函数关系 $x=g(y)$.\\
+
+
+
+
+  \ni$\Leftarrow:$假如存在直线 $y=a$ 上的某个点$(x_0,a)$,微分方程
+  在 $(x_0,a)$ 的任意邻域内解不唯一,即除了 $y=a$ 这个解外还有其它解,那
+  么有如下几个关键点:
+  \begin{itemize}
+  \item \label{item:1}瑕积分
+    \begin{equation}
+      \label{eq:12.58}
+      |\int_a^{a\pm \varepsilon}\frac{dy}{f(y)}|=\infty,\mbox{意思就
+        是}|\int_a^{a+\va}\frac{dy}{f(y)}|=\infty\mbox{以及}|\int_a^{a-\va}\frac{dy}{f(y)}|=\infty.
+    \end{equation}
+  \item \label{item:2}
+    $\frac{1}{f(y)}$ 在 $(a-\varepsilon,a+\varepsilon)$ 的去心邻域内连
+    续,可得对于任意给定的正实数 $\delta\in (0,\va)$,
+    \begin{equation}
+      \label{eq:1.01}
+      |\int_{a-\delta}^{a-\va}\frac{dy}{f(y)}|\mbox{和
+      }|\int_{a+\delta}^{a+\va}\frac{dy}{f(y)}|\mbox{都有限.}
+    \end{equation}
+    将第1个关键点和第2个关键点结合起来,可得如下关键点
+  \item\label{item:3} 对于任意给定的正实数 $\delta\in (0,\va)$,
+    \begin{equation}
+      \label{eq:1.17pm}
+      |\int_{a-\delta}^a \frac{dy}{f(y)}|=\infty\mbox{以及}|\int_a^{a+\delta}\frac{dy}{f(y)}|=\infty.
+    \end{equation}
+  \end{itemize}
+  下面我们把 \eqref{eq:1.17pm} 和 \eqref{eq:1.31} 结合起来,推出矛
+  盾.由\eqref{eq:1.31} 结合Newton-Leibniz公式可知,当 $(x,y)$ 处于
+  点 $(x_0,a)$的足够小的邻域 $V$ 内时,$\frac{dy}{f(y)}$ 在邻域 $V$ 内的
+  积分也会足够小(不会超
+  过邻域$V$ 的直径),这与 \eqref{eq:1.17pm} 矛盾.\\\\
+
+
+  \ni$\Rightarrow:$易得满足方程 \eqref{eq:3.41} 的积分曲线是可微的,因此
+  连续.当在直线 $y=a$ 的每一点上微分方程 \eqref{eq:3.41} 的解都是局部唯
+  一的时候,也就是说,方程\eqref{eq:3.41} 在直线 $y=a$ 的任意一
+  点 $(x_0,a)$ 的足够小的邻域 $U$上的唯一解是 $y=a$ 本身,此时,任意给定
+  的积分曲线
+  \begin{equation}
+    \label{eq:12.47}
+    \int \frac{1}{f(y)}dy-x+C_{0}=0.
+  \end{equation}
+  都将避开邻域 $U$.假如
+$$
+|\int_a^{a\pm \varepsilon}\frac{dy}{f(y)}|\neq\infty,
+$$
+那么
+\begin{equation}
+  \label{eq:3.13}
+  \int_a^{a\pm\va}\frac{dy}{f(y)}=M,
+\end{equation}
+其中 $M$ 是一个实数.当然,在这里,我们不考虑
+$\int_a^{a\pm\va}\frac{dy}{f(y)}$ 不存在的情形,因为由于
+$\frac{1}{f(y)}$ 在 $a$ 的去心邻域上的连续
+性,$\int_a^{a\pm\va}\frac{dy}{f(y)}$ 不存在的现象不会发生.\\
+
+式 \eqref{eq:3.13} 结合 \eqref{eq:1.31},可得积分曲线会在点 $(M,a)$ 处
+和直线 $y=a$ 相交!矛盾!
+\end{proof}
+\end{document}
