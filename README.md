@@ -2,7 +2,8 @@
 
 
 1.文件格式:
-
+----------
+----------
 文件都是tex文件和pdf文件,以及png文件.tex文档和pdf文档存在一一对应关系.
 
 每份tex文件都是我在Ubuntu Linux操作系统的texlive2012上使用pdflatex 或者 xelatex 编译得以通过的.如果tex文档里使用的Package是 xeCJK,则该文档可以用 xelatex 编译通过,否则是用 pdflatex 编译通过.
