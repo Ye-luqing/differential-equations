@@ -1,0 +1,232 @@
+\documentclass[a4paper, 12pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref,verbatim}
+\usepackage{amsthm,epigraph} 
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+% \usepackage{xeCJK}
+\usepackage{CJKutf8}
+\newtheorem*{adtheorem}{定理}
+% \setCJKmainfont[BoldFont=FZYaoTi,ItalicFont=FZYaoTi]{FZYaoTi}
+\definecolor{shadecolor}{rgb}{1.0,0.9,0.9} %背景色为浅红色
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{adtheorem}}
+    {\end{adtheorem}\end{mdframed}\bigskip}
+\newtheorem*{bdtheorem}{定义}
+\newenvironment{definition}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{bdtheorem}}
+    {\end{bdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{cdtheorem}{习题}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{cdtheorem}}
+    {\end{cdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{ddtheorem}{注}
+\newenvironment{remark}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{ddtheorem}}
+    {\end{ddtheorem}\end{mdframed}\bigskip}
+\newtheorem*{edtheorem}{引理}
+\newenvironment{lemma}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{edtheorem}}
+    {\end{edtheorem}\end{mdframed}\bigskip}
+\newtheorem*{pdtheorem}{例}
+\newenvironment{example}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{pdtheorem}}
+    {\end{pdtheorem}\end{mdframed}\bigskip}
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{wrapfig} % Allows in-line images
+\usepackage{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Required for accented characters
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title
+  % and author name here, see the TITLE block
+  % below
+  \renewcommand\refname{参考文献}
+  \newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+  \newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+  \newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+  \newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+  \newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+  \newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+  \newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+  \newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+  \newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+  \newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+  \newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+  \newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+  \newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+  \newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+  \begin{flushright} % Right align
+    {\LARGE\@title} % Increase the font size of the title
+    
+    \vspace{50pt} % Some vertical space between the title and author name
+    
+    {\large\@author} % Author name
+    \\\@date % Date
+    
+    \vspace{40pt} % Some vertical space between the author block and abstract
+  \end{flushright}
+}
+
+% ----------------------------------------------------------------------------------------
+%	TITLE
+% ----------------------------------------------------------------------------------------
+\begin{document}
+\begin{CJK}{UTF8}{gkai}
+  \title{\textbf{定理3.1:皮卡定理}}
+  % \setlength\epigraphwidth{0.7\linewidth}
+  \author{\small{叶卢庆}\\{\small{杭州师范大学理学院,学
+        号:1002011005}}\\{\small{Email:h5411167@gmail.com}}} % Institution
+  \renewcommand{\today}{\number\year. \number\month. \number\day}
+  \date{\today} % Date
+  
+  % ----------------------------------------------------------------------------------------
+  
+  
+  \maketitle % Print the title section
+  
+  % ----------------------------------------------------------------------------------------
+  %	ABSTRACT AND KEYWORDS
+  % ----------------------------------------------------------------------------------------
+  
+  % \renewcommand{\abstractname}{摘要} % Uncomment to change the name of the abstract to something else
+  
+  % \begin{abstract}
+  
+  % \end{abstract}
+  
+  % \hspace*{3,6mm}\textit{关键词:} % Keywords
+  
+  % \vspace{30pt} % Some vertical space between the abstract and first section
+  
+  % ----------------------------------------------------------------------------------------
+  %	ESSAY BODY
+  % ----------------------------------------------------------------------------------------
+  \begin{theorem}[皮卡定理]
+ 设初值问题:
+$$
+(E):\frac{dy}{dx}=f(x,y),y(x_0)=y_0,
+$$
+其中 $f(x,y)$ 在矩形区域
+$$
+R:|x-x_0|\leq a,|y-y_0|\leq b
+$$
+内连续,而且对 $y$ 满足李普希兹条件.则 (E) 在区间 $I=[x_0-h,x_0+h]$ 上有且只
+有一个解,其中常数
+$$
+h=\min\{a,\frac{b}{M}\},M>\max_{(x,y)\in R}|f(x,y)|.
+$$
+\end{theorem}
+\begin{proof}[证明]
+首先,笔者要做一个声明,就是笔者不打算过分地关注 $h$ 的具体数值.\\
+
+我们考虑该问题的物理意义.物理意义是质点的一维运动.其中 $x$ 是时间,$y$
+  是位移.$f(x,y)$ 是速度.质点的速度是连续的.质点在时间 $x_0$ 从点 $y_0$ 出发,初始速度为 $f(x_0,y_0)$.\\
+
+  而李普希兹条件是为了给速度一个控制.质点可能存在多种运动方式,但是李普
+  希兹条件保证了,在同一个时刻 $t$,速度不会超过在 $t$ 时刻不同运动方式导致的
+  位移差的某个固定倍数.题目就是叫我们证明,李普希兹条件导致了该质点在出发不
+  久的时间里运动方式的唯一性.\\\\
+\begin{comment}
+  我们先来探索一些情形.如果质点速度连续.在时间 $x_0$ 的时候位于位
+  置 $y_0$,且此时的速度为$f(x_0,y_0)$,且之后质点受到变力 $F(t)$ 的作用,我
+  们知道,经历时间 $t$ 后,质点的速度为
+$$
+\int_{0}^{t}\frac{F(s)}{m}+f(x_0,y_{0})ds.
+$$
+其中 $m$ 是质点的质量.因此,经历时间 $t$ 后,质点的位移为
+$$
+\int_{0}^{t}\left(\int_0^r \frac{F(s)}{m}ds+f(x_0,y_0)r\right)dr.
+$$
+同理,如果质点受到的力的作用是 $G(t)$,则经过时间 $t$ 后,质点的位移为
+$$
+\int_{0}^{t}\left(\int_0^r \frac{G(s)}{m}ds+f(x_0,y_0)r\right)dr.
+$$
+因此两种运动方式在经过时间 $t$ 后导致的位移差为
+\begin{align*}
+  &\int_{0}^{t}\left(\int_0^r
+    \frac{F(s)}{m}ds+f(x_0,y_0)r\right)dr-\int_{0}^{t}\left(\int_0^r
+    \frac{G(s)}{m}ds+f(x_0,y_0)r\right)dr\\&=\int_0^t\left(\int_0^{r}\frac{F(s)-G(s)}{m}ds\right)dr.
+\end{align*}
+如果 $F(t)$ 是恒力 $Q_1$,$G(t)$ 是和 $F(t)$ 不相等的另一个恒力 $Q_2$,下
+面我们来看
+$$
+\frac{\int_0^{t}\frac{F(s)-G(s)}{m}ds}{\int_0^t\left(\int_0^{r}\frac{F(s)-G(s)}{m}ds\right)dr}
+$$
+上式化简为
+$$
+\frac{\frac{t}{m}(Q_1-Q_2)}{\frac{1}{2}\frac{t^{2}}{m}(Q_1-Q_2)}
+$$
+此时,当 $t\to 0$ 时,显然不满足李普希兹条件.\\
+\end{comment}
+我们先来看下面这种特殊情形.如果质点在时间 $x_0$,位置 $y_0$的速度
+为0,即 $f(x_0,y_0)=0$,且 $f(x,y)$ 在矩形区域 $R$ 内连续且对$y$ 满足李
+普希兹条件,则质点在时间 $x_0$ 附近足够短的时间段内的唯一运动方式就是静止在 $y_0$ 处.下面
+我们来证明这一点.我们用反证法.假如质点在 $x_0$ 附近的任意短的时间段内,除了静止之外,
+还有一种运动方式,设依着这种运动方
+式,质点的速度随时间的函数为 $h(t)$,则我们知道,$h(x_0)=0$.经过时
+间 $t$,质点的位移为
+$$
+\int_{x_{0}}^{x_0+t}h(s)ds.
+$$
+由于当 $t\to 0$ 时,
+$$
+\int_{x_0}^{x_0+t}h(s)ds=o(h(x_0+t)),
+$$
+因此当 $\int_{x_0}^{x_0+t}h(s)ds\neq 0$ 时,
+$$
+\lim_{t\to 0}\frac{h(x_0+t)}{\int_{x_{0}}^{x_0+t}h(s)ds}=\infty.
+$$
+可见,李普希兹条件不满足.因此质点只能是静止这一种运动方式.\\
+
+接下来我们看一般情形.假如质点在时间 $x_0$,位置 $y_0$的速度
+为 $f(x_0,y_0)$,其中 $f(x_0,y_0)$ 未必为0,且 $f(x,y)$ 在矩形区域 $R$ 内连续且对$y$ 满足李
+普希兹条件,则质点在时间 $x_0$ 附近足够短的时间段内的运动方式是唯一的.我
+们采用反证法.假设质点在时间 $x_0$ 附近的任意短的时间段内的运动方式不唯一,则设存在两种运动方式 $A$ 和
+$B$.当质点按照运动方式 $A$ 的时候,设速度随时间的函数为 $V_A(t)$.当质点按照运动方式 $B$ 的时候,设速度随时间的函数为 $V_B(t)$.我们知
+道,$V_A(x_0)=f(x_0,y_0)$,且经过时间 $t$ 后,质点按照运动方式 $A$ 的位移为
+$$
+\int_{x_0}^{x_0+t}V_A(s)ds.
+$$
+按照运动方式 $B$ 的位移为
+$$
+\int_{x_0}^{x_0+t}V_B(s)ds.
+$$
+下面我们来看
+$$
+V_A(t)-V_B(t)
+$$
+与
+$$
+\int_{x_0}^{x_0+t}(V_A(s)-V_B(s))ds.
+$$
+易得当 $t\to 0$ 时,
+$$
+\int_{x_0}^{x_0+t}(V_A(s)-V_B(s))ds=o(V_A(t)-V_B(t)).
+$$
+因此,当 $\int_{x_0}^{x_0+t}(V_A(s)-V_B(s))ds\neq 0$ 时,我们有
+$$
+\lim_{t\to 0}\frac{V_A(t)-V_B(t)}{\int_{x_0}^{x_0+t}(V_A(s)-V_B(s))ds}=\infty.
+$$
+因此,李普希兹条件不满足,矛盾.
+\end{proof}
+% ----------------------------------------------------------------------------------------
+% BIBLIOGRAPHY
+% ----------------------------------------------------------------------------------------
+  
+\bibliographystyle{unsrt}
+  
+\bibliography{sample}
+  
+% ----------------------------------------------------------------------------------------
+\end{CJK}
+\end{document}
