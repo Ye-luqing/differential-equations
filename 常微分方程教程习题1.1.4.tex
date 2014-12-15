@@ -1,0 +1,88 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{bm}
+\usepackage{euler}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{yhmath}
+\usepackage{pstricks-add}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{xeCJK}
+\newtheorem*{theo}{定理}
+\newtheorem*{exe}{题目}
+\newtheorem*{rem}{评论}
+\newmdtheoremenv{lemma}{引理}
+\newmdtheoremenv{corollary}{推论}
+\newmdtheoremenv{example}{例}
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}\begin{theo}}
+    {\end{theo}\end{mdframed}\bigskip}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}\begin{exe}}
+    {\end{exe}\end{mdframed}\bigskip}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\setCJKmainfont[BoldFont=SimHei]{SimSun}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+\newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+\newcommand{\ov}{\overrightarrow}
+\newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+\newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+\newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+\newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+\newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+\newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+\newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+\newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+\newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+\renewcommand\refname{参考文献}\renewcommand\figurename{图}
+\usepackage[]{caption2} 
+\renewcommand{\captionlabeldelim}{}
+\setlength\parindent{0pt}
+\begin{document}
+\title{\huge{\bf{常微分方程教程习题1.1.4}}} \author{\small{叶卢
+    庆\footnote{叶卢庆(1992---),男,杭州师范大学理学院数学与应用数学专业
+      本科在读,E-mail:yeluqingmathematics@gmail.com}}}
+\maketitle
+\begin{exercise}
+  证明:设 $ y=g(x,C_1,C_2,\cdots,C_n)$ 是一个充分光滑的函数 族,其中 $
+  x$是自变量,而 $ C_1,C_2,\cdots,C_n$ 是 $ n$ 个独立的参数(任 意常
+  数),则存在一个形如
+$$F(x,y,y',\cdots,y^{(n)})=0$$
+的 $ n$ 阶微分方程,使得它的通解恰好是上述函数族.
+\end{exercise}
+\begin{proof}[\textbf{证明}]
+  可得
+  $$ {\displaystyle \begin{cases} y=g(x,C_1,\cdots,C_n),\\
+      y^{(1)}=g^{(1)}(x,C_1,\cdots,C_n),\\
+      y^{(2)}=g^{(2)}(x,C_1,\cdots,C_n),\\ \vdots\\
+      y^{(n-1)}=g^{(n-1)}(x,C_1,\cdots,C_n) \end{cases}. \ \ \ \ \
+    (1)}$$
+
+  以及
+
+  $$ {\displaystyle y^{(n)}=g^{(n)}(x,C_1,\cdots,C_n). \ \ \ \ \ (2)}$$
+
+  由于常数 $ C_1,\cdots,C_n$ 独立,因此我们可以反解出
+
+  $$ {\displaystyle \begin{cases}
+      C_1=p_1(x,y,y^{(1)},\cdots,y^{(n-1)}),\\
+      C_2=p_2(x,y,y^{(1)},\cdots,y^{(n-1)}),\\ \vdots\\
+      C_n=p_n(x,y,y^{(1)},\cdots,y^{(n-1)})\\ \end{cases}. \ \ \ \ \
+    (3)}$$
+
+  其中 $ p_1,p_2,\cdots,p_n$ 都是从 $ \mathbf{R}^n$ 到 $ \mathbf{R}$ 的
+  函数.将 式 (3) 代入 (2),得到
+
+  $$ {\displaystyle
+    y^{(n)}=g^{(n)}(x,p_1(x,y,y^{(1)},\cdots,y^{(n-1)}),\cdots,p_n(x,y,y^{(1)},\cdots,y^{(n-1)})). \
+    \ \ \ \ (4)}$$式 (4)即为我们所求的微分方程.
+\end{proof}
+\end{document}
