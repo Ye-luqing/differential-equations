@@ -1,0 +1,123 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{yhmath}
+\usepackage{pstricks-add}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{xeCJK}
+\newtheorem*{theo}{定理}
+\newtheorem*{exe}{Exercise}
+\newtheorem*{rem}{评论}
+\newmdtheoremenv{lemma}{引理}
+\newmdtheoremenv{corollary}{推论}
+\newtheorem*{exa}{例}
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}\begin{theo}}
+    {\end{theo}\end{mdframed}\bigskip}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}\begin{exe}}
+    {\end{exe}\end{mdframed}\bigskip}
+\newenvironment{example}
+{\bigskip\begin{mdframed}\begin{exa}}
+    {\end{exa}\end{mdframed}\bigskip}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\setCJKmainfont[BoldFont=SimHei]{SimSun}
+\newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+\newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+\newcommand{\ov}{\overrightarrow}
+\newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+\newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+\newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+\newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+\newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+\newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+\newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+\newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+\newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+\renewcommand\refname{参考文献}\renewcommand\figurename{图}
+\usepackage[]{caption2} 
+\renewcommand{\captionlabeldelim}{}
+\setlength\parindent{0pt}
+\begin{document}
+\title{\huge{\bf{Exercise1.3-1.7}}} \author{\small{Luqing Ye\footnote{叶卢庆(1992---),男,杭州师范大学理学院数学与应用数学专业本科在读,E-mail:yeluqingmathematics@gmail.com}}}
+\maketitle
+Find the differential equations corresponding to the following
+primitives.
+\begin{exercise}[1.3]
+
+$$
+y=cx+\sqrt{1-c^2}.
+$$
+\end{exercise}
+\begin{proof}[\textbf{Solve}]
+$$
+y'=x.
+$$  
+\end{proof}
+\begin{exercise}[1.4]
+$$
+(x-c_1)^2+(y-c_2)^2=r^2.
+$$
+\end{exercise}
+\begin{proof}[\textbf{Solve}]
+$$
+(x-c_1)+(y-c_2)\frac{dy}{dx}=0.
+$$
+$$
+1+\left(\frac{dy}{dx}\right)^{2}+(y-c_{2}) \frac{d^{2}y}{dx^2}=0.
+$$
+$$
+2\left(\frac{dy}{dx}\right)\frac{d^2y}{dx^2}+\frac{d^2y}{dx^2}+(y-c_2)\frac{d^3y}{dx^3}=0.
+$$
+So 
+$$
+-\frac{d^3y}{dx^3}-\frac{d^3y}{dx^3}\left(\frac{dy}{dx}\right)^2+2\left(\frac{dy}{dx}\right)\left(\frac{d^2y}{dx^2}\right)^{2}+\left(\frac{d^2y}{dx^{2}}\right)^{2}=0.
+$$
+\end{proof}
+\begin{exercise}[1.5]
+$$
+y=c_1x^2+c_2.
+$$
+\end{exercise}
+\begin{proof}[\textbf{Solve}]
+$$
+y'=2c_1x,y''=2c_1.
+$$
+So $y'=y''x$.
+\end{proof}
+\begin{exercise}[1.6]
+  $$ y^2+c_1x=0 .$$
+\end{exercise}
+\begin{proof}[\textbf{Solve}]
+$$
+2yy'+c_1=0,
+$$
+So
+$$
+y^2-2yy'x=0.
+$$
+\end{proof}
+\begin{exercise}[1.7]
+$$
+x^2=2cy+c^2.
+$$
+\end{exercise}
+\begin{proof}[\textbf{Solve}]
+$$
+2x=2cy',
+$$
+So
+$$
+x^2y'^{2}=2cy'yy'+c^2y'^2=2xyy'+x^2.
+$$
+\end{proof}
+\end{document}
