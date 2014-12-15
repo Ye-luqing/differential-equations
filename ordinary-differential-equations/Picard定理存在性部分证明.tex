@@ -1,0 +1,234 @@
+\documentclass[a4paper]{article} 
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref}
+\usepackage{amsthm} 
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{pstricks-add}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{euler}
+\usepackage{eulervm}
+
+\usepackage{xeCJK}
+\newtheorem*{theorem}{定理}
+\newtheorem*{lemma}{引理}
+\newtheorem*{corollary}{推论}
+\newtheorem*{exercise}{习题}
+\newtheorem*{example}{例}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\setCJKmainfont[BoldFont=STXihei]{FZFangSong-Z02S}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+\newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+\newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+\newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+\newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+\newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+\newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+\newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+\newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+\newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+\newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+\renewcommand\refname{参考文献}\renewcommand\figurename{图}
+\usepackage[]{caption2} 
+\renewcommand{\captionlabeldelim}{}
+\begin{document}
+\title{\huge{\bf{Picard定理存在性部分证明}}} \author{\small{叶卢
+    庆\footnote{叶卢庆(1992---),男,杭州师范大学理学院数学与应用数学专业
+      本科在读,E-mail:h5411167@gmail.com}}\\{\small{杭州师范大学理学院,数
+      学112,学号:1002011005}}}
+\maketitle
+\ni在这篇文章里,笔者证明Picard定理中存在性的部分,即证明下面的定理“有且
+仅有”中的“有”.
+
+\begin{theorem}[Picard定理]
+  设初值问题: $$ (E):\frac{dy}{dx}=f(x,y),y(x_0)=y_0, $$ 其中 $f(x,y)$
+  在矩形区域 $$ R:|x-x_0|\leq a,|y-y_0|\leq b $$ 内连续,而且对 $y$ 满足
+Lipschitz 条件,即存在一个正实数 $h$,使得在矩形区域 $R$ 内任意的不同点
+  $(x,y_1),(x,y_2)$,都有
+$$
+\left|\frac{f(x,y_1)-f(x,y_2)}{y_1-y_2}\right|\leq h.
+$$
+则 $(E)$ 在区间 $I=[x_0-h,x_0+h]$ 上有 且只有一个解,其中
+  常数 $$ h=\min\{a,\frac{b}{M}\},M>\max_{(x,y)\in R}|f(x,y)|. $$
+\end{theorem}
+\begin{proof}[\textbf{证明}]
+  我们考虑该问题的物理意义.物理意义是质点的一维运动.其中$x$是时间,$y$是位移.$f(x,y)$ 是速度.质点的速度随时间的函数是连续的.质点在时间$x_0$从点 $y_0$ 出发,初始速度为 $f(x_0,y_0)$.\\
+ 
+ 
+  在接下来很短的时间 $[x_0,x_0+\Delta x)$里,让质点以速度 $f(x_0,y_0)$
+  进行匀速直线运动.当质点走完时间 $\Delta x$ 后,我们继续为这个质点分配
+  同样短的一段时间 $\Delta x$,质点在接下来的时间段 $[x_0+\Delta
+  x,x_0+2\Delta x)$ 内以速度 $f(x_0+\Delta x,y_0+f(x_0,y_0)\Delta x)$
+  进
+  行匀速直线运动.\\
+ 
+  就这样不断地为质点分配相同短的运动时间 $\Delta x$,在每段很短的时间里,质
+  点的运动都为匀速直线运动,且速度为质点在该段时间初始的速度.这样从总体
+  上看来,质点就存在了一种折线运动方式. 以质点的位置为纵坐标,时间为横坐
+  标,我们可以画出质点的 时间-位置 图像,以此来描述质点的运
+  动.如图\eqref{fig:1},我们发现每段时间为 $\Delta x$ 的时候,质点的运动
+  从整体上
+  呈现出一条折线.\\
+
+\begin{figure}[h]
+  \newrgbcolor{xdxdff}{0.49 0.49 1}
+  \psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dotstyle=o,dotsize=3pt
+    0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+  \begin{pspicture*}(-0.95,0)(17.05,10.25) \psline{->}(0,0)(14,0)
+    \psline{->}(0,0)(0,10) \psline(1,0)(1,9.25) \psline(2,0)(2,9.25)
+    \psline(3,0)(3,9.25) \psline(4,0)(4,9.25) \psline(5,0)(5,9.25)
+    \psline(6,0)(6,9.25) \psline(8,0)(8,9.25) \psline(7,0)(7,9.25)
+    \psline{->}(0,6.14)(1,5.31) \psline{->}(1,5.32)(2,5.79)
+    \psline{->}(2,5.79)(3,5.34) \psline{->}(3,5.34)(4,6.69)
+    \psline{->}(4,6.68)(5,6.41) \psline{->}(5,6.41)(6,7.2)
+    \psline{->}(6,7.2)(7,6.63) \psline{->}(7,6.63)(8,8.15)
+  \end{pspicture*}
+  \caption{}
+  \label{fig:1}
+\end{figure}
+ 
+
+易得,每给定一个 $\Delta x$,质点就存在唯一的一个相应运动方式.现在,我们将
+每小段的时间 $\Delta x$ 减半,变成 $\frac{\Delta x}{2}$,则质点的运动
+将呈现出如图\eqref{fig:2}中的状态.\\
+
+\begin{figure}[h]
+  \psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dotstyle=o,dotsize=3pt
+    0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+  \begin{pspicture*}(-5.29,5.18)(14.91,14.18) \psline{->}(0,0)(14,0)
+    \psline{->}(0,0)(0,10) \psline(1,5.18)(1,14.18)
+    \psline(2,5.18)(2,14.18) \psline(3,5.18)(3,14.18)
+    \psline(4,5.18)(4,14.18) \psline(5,5.18)(5,14.18)
+    \psline(6,5.18)(6,14.18) \psline(8,5.18)(8,14.18)
+    \psline(7,5.18)(7,14.18) \psline{->}(0,6.14)(1,5.31)
+    \psline{->}(1,5.32)(2,5.79) \psline{->}(2,5.79)(3,5.34)
+    \psline{->}(3,5.34)(4,6.69) \psline{->}(4,6.68)(5,6.41)
+    \psline{->}(5,6.41)(6,7.2) \psline{->}(6,7.2)(7,6.63)
+    \psline{->}(7,6.63)(8,8.15) \psline[linestyle=dashed,dash=4pt
+    4pt](0.5,5.18)(0.5,14.18) \psline[linestyle=dashed,dash=4pt
+    4pt](1.5,5.18)(1.5,14.18) \psline[linestyle=dashed,dash=4pt
+    4pt](2.5,5.18)(2.5,14.18) \psline[linestyle=dashed,dash=4pt
+    4pt](3.5,5.18)(3.5,14.18) \psline[linestyle=dashed,dash=4pt
+    4pt](4.5,5.18)(4.5,14.18) \psline[linestyle=dashed,dash=4pt
+    4pt](5.5,5.18)(5.5,14.18) \psline[linestyle=dashed,dash=4pt
+    4pt](6.5,5.18)(6.5,14.18) \psline[linestyle=dashed,dash=4pt
+    4pt](7.5,5.18)(7.5,14.18) \psline{->}(0.5,5.73)(1,5.98)
+    \psline{->}(1,5.98)(1.5,6.35) \psline{->}(1.5,6.35)(2,7.01)
+    \psline{->}(2,7.01)(2.5,7.04) \psline{->}(2.5,7.04)(3,7.44)
+    \psline{->}(3,7.45)(3.5,8.66) \psline{->}(3.5,8.66)(4,10.91)
+    \psline{->}(4,10.91)(4.5,10.9) \psline{->}(4.5,10.9)(5,10.86)
+    \psline{->}(5,10.85)(5.5,11.81) \psline{->}(5.5,11.81)(6,12.31)
+    \psline{->}(6,12.32)(6.5,12.32) \psline{->}(6.5,12.32)(7,12.39)
+    \psline{->}(7,12.39)(7.5,13.44) \psline{->}(7.5,13.44)(8,13.99)
+  \end{pspicture*}
+  \caption{}
+  \label{fig:2}
+\end{figure}
+
+
+以此类推,可见,当我们不断地将质点的匀速运动时间 $\Delta x$ 二等分,质点的运动将会越来越精细.现在我们来看序列 $$ \Delta x,\frac{\Delta x}{2},\frac{\Delta x}{4},\cdots,\frac{\Delta x}{2^n},\cdots $$ 该序列中的每一个数都对应着质点的唯一一种折线运动状态.质点的每个运动状态都是质点的位置关于时间的函数,因此上面的序列依次对应一列函数 $$ f_1(x),f_2(x),\cdots,f_{n}(x),\cdots $$ 由于在微分方程 $\frac{dy}{dx}=f(x,y)$ 中质点的运动速度是时间的连续函数,因此当 $n$ 足够大时,质点在相邻时间段内的运动发生的偏折不会太大,也即在相邻时间段,质点的速度的差距不会太大.更精确地来讲,对于任意给定的正实数 $\varepsilon$,都存在相应的正整数 $N$,使得对于一切 $n>N$,当质点按照数 $\frac{\Delta x}{2^n}$ 对应的运动方式进行折线运动时,对于任意两个相邻的时间段来说,质点的速度差都会控制在 $\varepsilon$ 以内.这根据闭区间上的连续函数一致连续是很容易证明的.\\
+ 
+现在,我们证明,当 $n\to\infty$ 时,数 $\frac{\Delta x}{2^n}$ 对应的运动
+方式存在,且此时很可能已经不再是折线运动,而可能是一条光滑的曲线.更加详
+细地说,我们要证明的是,函数列 $$ f_1(x),f_2(x),\cdots,f_n(x) $$ 一致收
+敛于某个连续可微的函数 $f(x)$.\\
+ 
+ 
+我们来看数 $\frac{\Delta x}{2^n}$ 对应的质点折线运动路径
+和$\frac{\Delta x}{2^{n+1}}$ 对应的质点折线运动路径.在时
+间$[x_0,x_0+\frac{\Delta x}{2^{n+1}}]$ 里,两种运动方式完全重合,因此没有
+造成路程差. 在时间 $[x_0+\frac{\Delta x}{2^{n+1}},x_0+2\frac{\Delta
+  x}{2^{n+1}}]$里,两种运动方式有可能造成距离差异.不妨设此时
+数$\frac{\Delta x}{2^{n+1}}$ 对应的运动方式在时间 $[x_0+\frac{\Delta
+  x}{2^{n+1}},x_0+2\frac{\Delta x}{2^{n+1}}]$ 与数 $\frac{\Delta
+  x}{2^n}$ 对应的运动方式造成了距离 $G$.然后在时间
+段$[x_0+2\frac{\Delta x}{2^{n+1}},x_0+3\frac{\Delta x}{2^{n+1}}]$ 里,根
+据 Lipchitz条件,我们知道,两种运动方式速度顶多相差 $Gh$.因此两种运动方式在经过了时间段 $[x_0+2\frac{\Delta
+  x}{2^{n+1}},x_0+3\frac{\Delta x}{2^{n+1}}]$ 后的总路程差至多为 $
+G+Gh\frac{\Delta x}{2^{n+1}}$.\\
+
+ 然后质点继续在时间
+段$[x_0+3\frac{\Delta x}{2^{n+1}},x_0+4\frac{\Delta x}{2^{n+1}}]$ 里运
+动.由于当 $n$ 足够大时,质点在每个相邻的时间段内速度差都会足够小,不妨
+设$n>N$,且质点在每个相邻时间段内的速度差都小于 $\varepsilon(n)$(这是由
+速度的连续性保证的,闭区间上的连续函数一致连续).则质点在经过时间
+段$[x_0+3\frac{\Delta x}{2^{n+1}},x_0+4\frac{\Delta x}{2^{n+1}}]$ 后,两
+种运动方式造成的总路程差至多为 $$ G+Gh\frac{\Delta
+  x}{2^{n+1}}+(Gh+\varepsilon(n))\frac{\Delta x}{2^{n+1}}. $$ 然后,质点
+继续运动,开始经历时间段 $[x_0+4\frac{\Delta
+  x}{2^{n+1}},x_0+5\frac{\Delta x}{2^{n+1}}]$,在这段时间
+里,根据Lipchitz条件,质点按照两种运动方式最大的速度差为 $$
+(G+Gh\frac{\Delta x}{2^{n+1}}+(Gh+\varepsilon(n))\frac{\Delta
+  x}{2^{n+1}})h, $$ 因此质点在经过时间段$[x_0+4\frac{\Delta
+  x}{2^{n+1}},x_0+5\frac{\Delta x}{2^{n+1}}]$后,按照两种运动方式造成的
+总路程差最大为 $$ G+Gh\frac{\Delta
+  x}{2^{n+1}}+(Gh+\varepsilon(n))\frac{\Delta
+  x}{2^{n+1}}+(G+Gh\frac{\Delta
+  x}{2^{n+1}}+(Gh+\varepsilon(n))\frac{\Delta
+  x}{2^{n+1}})h\frac{\Delta x}{2^{n+1}}. $$
+
+
+然后就这样不断地迭代下去.这真是有点复杂啊,我得整理一下. 我们面对的是这
+样的情形,首先,我们有一个数 $G$,然后将 $G$ 经过函数 $T$ 的作用变成 $$ T(G)=G+Gh\frac{\Delta
+  x}{2^{n+1}}+(Gh+\varepsilon(n))\frac{\Delta x}{2^{n+1}}. $$ 然后不断
+迭代 $$ T^{(k)}(G)=T(T(T(T(T(\cdots T(G)))))). $$ 这里迭代了 $k$ 次.我
+们将 $T(G)$ 整理成 $$ T(G)=G+Gh\frac{\Delta
+  x}{2^{n}}+\frac{\varepsilon(n)\Delta x}{2^{n+1}}. $$ 其中 $h,\Delta
+x,\varepsilon(n),n$ 都给定.我们来看迭代足够多次后,$T^{(2^n)}(G)$ 会不会
+趋于无界.为此我们准备求出 $T^{(2^n)}(G)$ 的表达式.令 $1+h\frac{\Delta
+  x}{2^n}=P,\frac{\varepsilon(n)\Delta x}{2^{n+1}}=Q$,易
+得 \begin{equation} T^{(2^n)}(G)=P^{2^n+1}G+P^
+  {2^n}Q+\cdots+PQ+Q=P^{2^n+1}G+Q(\frac{1-P^{2^n+2}}{1-P}). \end{equation}
+下面我们来看 $P^{2^n}$,易得 $$
+\lim_{n\to\infty}P^{2^n}=\lim_{n\to\infty}(1+\frac{h\Delta
+  x}{2^n})^{2^n}=e^{h\Delta x}. $$ 因此可得 $$
+\lim_{n\to\infty}T^{(2^n)}(G)=Pe^{h\Delta x}G+Q(\frac{1-P^2e^{h\Delta
+    x}}{1-P})=\lim_{n\to\infty}(e^{h\Delta
+  x}G+\frac{\varepsilon(n)}{2}(e^{h\Delta x}-1))=0. $$ 不过,证到这里,并
+没有结束.我们发现我们的证明方向出现了偏差．到目前为止,其实我们只是证明
+了当 $\Delta x$ 给定,且 $n$ 无论多大的时候,质点按照数 $\frac{\Delta
+  x}{2^n}$ 和 $\frac{\Delta x}{2^{n+1}}$两种运动方式走
+完 $[x_0,x_0+\Delta x]$ 这段时间所造成的路程差都是有界
+的,且当 $n\to\infty$ 时,造成的路程差也趋于0.光凭这一点,还不能判断质点
+所有的路径最后会一致收敛于某条路径.虽然如此,我们仍然可以继续
+做下去. 我们已经知道, \begin{equation} T^{(2^n)}(G)=P^{2^n+1}G+P^
+  {2^n}Q+\cdots+PQ+Q=P^{2^n+1}G+Q(\frac{1-P^{2^n+2}}{1-P}). \end{equation}
+将其化简,可得 $$
+T^{(2^n)}(G)=P^{2^n+1}G+\frac{\varepsilon(n)}{2h}(P^{2^n+2}-1)\leq
+P^{2^n+1}\frac{\varepsilon(n)\Delta
+  x}{2^{n+1}}+\frac{\varepsilon}{2h}(P^{2^n+2}-1) $$ 易得 $$
+\limsup_{n\to\infty}\varepsilon(n) \leq \frac{U(n)}{2^n}, \mbox{其中 U
+  是某个函数,且} \lim_{n\to\infty}U(n)=0.$$ 因此
+$$
+T^{(2^n)}(G)\leq P^{2^n+1}\frac{\varepsilon(n)\Delta
+  x}{2^{n+1}}+\frac{U(n)}{2^{n+1}h}(P^{2^n+2}-1)
+$$
+因此对于任意给定的正实数 $\delta$,都存在相应的足够大的正整数 $N$,使得对
+于任意的 $m,n > N $ , 当 质点按照数 $\frac{\Delta
+  x}{2^m}$ 和数 $\frac{\Delta x}{2^n}$ 对应 的运动方式运动时,两种运动方
+式在时间 $[x_0,x_0+\Delta x]$造成的 路程 差 会小于 $\delta$.因此
+$$
+f_1(x),f_2(x),\cdots,f_n(x),\cdots
+$$
+一致收敛于某函数 $f(x)$.\\
+
+至于 $f(x)$ 的连续可微的性,应该是容易证明和想象的.
+\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
