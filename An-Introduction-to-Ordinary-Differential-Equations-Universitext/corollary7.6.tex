@@ -1,0 +1,144 @@
+\documentclass[a4paper, 12pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref,verbatim}
+\usepackage{amsthm,epigraph} 
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+% \usepackage{xeCJK}
+\usepackage{CJKutf8}
+\newtheorem*{adtheorem}{Theorem}
+% \setCJKmainfont[BoldFont=FZYaoTi,ItalicFont=FZYaoTi]{FZYaoTi}
+\definecolor{shadecolor}{rgb}{1.0,0.9,0.9} %背景色为浅红色
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{adtheorem}}
+    {\end{adtheorem}\end{mdframed}\bigskip}
+\newtheorem*{bdtheorem}{Definition}
+\newenvironment{definition}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{bdtheorem}}
+    {\end{bdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{cdtheorem}{Exercise}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{cdtheorem}}
+    {\end{cdtheorem}\end{mdframed}\bigskip}
+\newtheorem*{ddtheorem}{Remark}
+\newenvironment{remark}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{ddtheorem}}
+    {\end{ddtheorem}\end{mdframed}\bigskip}
+\newtheorem*{edtheorem}{Lemma}
+\newenvironment{lemma}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{edtheorem}}
+    {\end{edtheorem}\end{mdframed}\bigskip}
+\newtheorem*{pdtheorem}{Corollary}
+\newenvironment{corollary}
+{\bigskip\begin{mdframed}[backgroundcolor=gray!40,rightline=false,leftline=false,topline=false,bottomline=false]\begin{pdtheorem}}
+    {\end{pdtheorem}\end{mdframed}\bigskip}
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{wrapfig} % Allows in-line images
+\usepackage{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Required for accented characters
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title
+  % and author name here, see the TITLE block
+  % below
+  \newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+  \newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+  \newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+  \newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+  \newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+  \newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+  \newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+  \newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+  \newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+  \newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+  \newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+  \newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+  \newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+  \newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+  \begin{flushright} % Right align
+    {\LARGE\@title} % Increase the font size of the title
+    
+    \vspace{50pt} % Some vertical space between the title and author name
+    
+    {\large\@author} % Author name
+    \\\@date % Date
+    
+    \vspace{40pt} % Some vertical space between the author block and abstract
+  \end{flushright}
+}
+
+% ----------------------------------------------------------------------------------------
+%	TITLE
+% ----------------------------------------------------------------------------------------
+\begin{document}
+\begin{CJK}{UTF8}{gkai}
+  \title{\textbf{Corollary7.6}}
+  % \setlength\epigraphwidth{0.7\linewidth}
+  \author{\small{Luqing Ye}\\{\small{Hangzhou Normal
+        University,Student
+        ID:1002011005}}\\{\small{Email:h5411167@gmail.com}}} % Institution
+  \renewcommand{\today}{\number\year. \number\month. \number\day}
+  \date{\today} % Date
+  
+  
+  
+  \maketitle
+  \begin{corollary}
+    Let $u(x),p(x),q(x)$ be nonnegative continuous functions in the
+    interval $|x-x_0|\leq a$ and
+    \begin{equation}
+      \label{eq:1}
+      u(x)\leq p(x)+\left|\int_{x_0}^xq(t)u(t)dt\right| for |x-x_0|\leq a.
+    \end{equation}
+    And $p(x)=c_0+c_1|x-x_0|$,$q(x)=c_2$,where $c_0,c_1,c_2$ are
+    non-negative constants, Then the following inequality holds:
+    \begin{equation}
+      \label{eq:2}
+      u(x)\leq \left(c_0+\frac{c_1}{c_2}\right)\exp(c_2|x-x_0|)-\frac{c_1}{c_2}.
+    \end{equation}
+  \end{corollary}
+  \begin{proof}
+By symmetry,assume that $x\geq x_0$.And from Theorem7.3,we know that
+    \begin{equation}
+      \label{eq:3}
+      u(x)\leq p(x)+\int_{x_0}^xp(t)q(t)\exp\left(\int_t^xq(s)ds\right)dt
+    \end{equation}
+We know that
+$$
+\int_{x_0}^xe^{c_2(x-t)}dt=-\frac{1}{c_2}e^{0}+\frac{1}{c_2}e^{c_2(x-x_{0})}.
+$$
+Now we calculate 
+$$
+\int te^{c_2(x-t)}dt=\int t\frac{e^{c_2x}}{e^{c_2t}}dt=e^{c_{2}x}\int
+te^{-c_2t}dt=e^{c_2x}(-\frac{1}{c_{2}^{2}}e^{-c_{2}t}(c_{2}t+1))+Ce^{c_2x}
+$$
+So
+\begin{align*}
+  \int_{x_0}^xte^{c_2(x-t)}dt&=e^{c_2x}(-\frac{1}{c_2^2}e^{-c_{2}x}(c_2x+1))-e^{c_2x}(-\frac{1}{c_2^2}e^{-c_2x_0}(c_2x_0+1))\\&=\frac{-1}{c_2^2}(c_2x+1)+e^{c_2x}(\frac{1}{c_2^2}e^{-c_2x_0}(c_2x_0+1)).
+\end{align*}
+So \eqref{eq:3} is equivalent to
+\begin{align*}
+  u(x)&\leq c_0+c_1(x-x_0)+\int_{x_0}^x(c_0+c_1(t-x_0))c_2\exp\left(\int_t^{x}c_{2}ds\right)dt\\&=c_0+c_1(x-x_0)+\int_{x_0}^xc_2(c_0+c_1(t-x_0))e^{(x-t)c_2}dt\\&=c_0+c_1(x-x_0)+c_0c_{2}\int_{x_0}^xe^{c_2(x-t)}dt+c_1c_2\int_{x_0}^x(t-x_0)e^{c_2(x-t)}dt\\&=c_0+c_1(x-x_{0})+c_{0}c_{2}(-\frac{1}{c_2}e^0+\frac{1}{c_2}e^{c_2(x-x_{0})})-c_1c_2x_0(-\frac{1}{c_2}+\frac{1}{c_2}e^{c_2(x-x_{0})})\\&+c_1c_2(\frac{-1}{c_2^2}(c_2x+1)+e^{c_2x}(\frac{1}{c_2^2}e^{-c_2x_0}(c_2x_0+1)))\\&=e^{c_2(x-x_0)}(c_0+\frac{c_1}{c_2})-\frac{c_1}{c_2}.
+\end{align*}
+Done.
+  \end{proof}
+  % ----------------------------------------------------------------------------------------
+  %	BIBLIOGRAPHY
+  % ----------------------------------------------------------------------------------------
+  
+  \bibliographystyle{unsrt}
+  
+  \bibliography{sample}
+  
+  % ----------------------------------------------------------------------------------------
+\end{CJK}
+\end{document}
